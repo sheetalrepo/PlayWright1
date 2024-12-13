@@ -249,10 +249,11 @@ await locator.pressSequentially('23012024')
 #Error #Exceptions
 ============================================================================================================
 
-Problem: [object Promise]
+Q: [object Promise]
 Sol: add await 
 
 
+Q: apiRequestContext.get: unable to get local issuer certificate
 
 
 ============================================================================================================
