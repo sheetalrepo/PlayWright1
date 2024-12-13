@@ -1,5 +1,4 @@
-const { test, expect } = require('@playwright/test');
-
+const { test, expect, request } = require('@playwright/test');
 
 
 test('My First PlayWrite Test Case 5', async ({page}) =>{
@@ -9,25 +8,20 @@ test('My First PlayWrite Test Case 5', async ({page}) =>{
 })
 
 
-
-/**
- * Navigation
- */
-test.only('Test API Tests', async ({page}) =>{
-
-    //Locators
-    //const automationTrainingButton = page.locator('text="Automation Training"');
-    const automationTrainingButton = page.locator("a:has-text('Automation Training')");
+test('Verify GET API response', async ({ request }) => {
+    // Define the URL
+    const url = 'https://jsonplaceholder.typicode.com/posts/1'; // Replace with your API endpoint
   
-    //Go to page
-    await page.goto('https://practice.expandtesting.com/');
-
-    await automationTrainingButton.click();
-    await page.waitForTimeout(5000);
-
-    await page.goBack();
-    await page.waitForTimeout(5000);  
-
-    await page.goForward();
-    await page.waitForTimeout(5000);  
-})
+    // Send a GET request
+    const response = await request.get(url);
+  
+    // Verify the status code
+    expect(response.status()).toBe(200);
+  
+    // Parse and log the response body
+    const responseBody = await response.json();
+    console.log(responseBody);
+  
+    // Perform additional validations on the response
+    expect(responseBody).toHaveProperty('id', 1); // Example validation
+  });

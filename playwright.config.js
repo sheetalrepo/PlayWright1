@@ -14,6 +14,7 @@ module.exports = defineConfig({             // https://playwright.dev/docs/test-
     screenshot: 'on',             //on 
     browserName: 'webkit'        //firefox, chromium, webkit
     //baseURL: 'http://127.0.0.1:3000',
+    ,baseURL:'https://swapi.dev/api'
   }
 
 });
