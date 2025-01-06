@@ -88,23 +88,28 @@ await expect (locator).toHaveAttribute("type","checkbox");
 #Debug  #Waits
 ============================================================================================================
 
+#Debug UI 
+    await page.pause();                         //debug window will open 
+    npx playwrite test --headed --debug         //debug window will open from start  of test
+
+#Debug traces.zip
+    playwright.config.js > trace: 'retain-on-failure'
+    Run test >  Goto Project Folder > test-results > traces.zip  
+    Goto https://trace.playwright.dev/  > upload trace.zip file 
+
+#Debug API 
+    playwright.config.js > trace: 'on'
+    z_readme.txt
+
 #Logging
-console.log(await page.title());                            //to print title
-console.log("My Page Title: "+ await page.title());
-
-
-#Debug
-    await page.pause();
-
+    console.log(await page.title());                            //to print title
+    console.log("My Page Title: "+ await page.title());
 
 #Waits #Sleep 
     await page.waitForTimeout(5000);                    //wait sleep
     await locator.waitFor();                            //locator shd resolve to single element
     await locatorListItem.last().waitFor();             //locator returs a list 
     page.waitForLoadState('networkidle')                //load"|"domcontentloaded"
-
-
-
 
 
 ============================================================================================================
