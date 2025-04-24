@@ -23,8 +23,8 @@ test('My First PlayWrite Test Case 1', function(){
  * - await and async comes together
  * 
  */
-test("title1","body")
-test("title2","function as body")
+//test("title1","body")
+//test("title2","function as body")
 
 test('My First PlayWrite Test Case 2', async function(){
     //await open browser
