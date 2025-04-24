@@ -1,0 +1,10 @@
+{
+  "headers": {
+    "Content-type": "application/json; charset=UTF-8"
+  },
+  "data": {
+    "title": "Prod Bug 108",
+    "body": "From File",
+    "userId": 12
+  }
+}

@@ -40,17 +40,23 @@ https://playwright.dev/docs/test-assertions
 ============================================================================================================
 #UI TCs
 Terminal > Go to Project Root Folder 
-        playwright.config.js File > testDir=./tests  | Default locaitons of all TCs
+    playwright.config.js File > testDir=./tests  | Default locaitons of all TCs
 
-npx playwrite test                                  //It will locate playwright.config.js and execute it in Headless mode
-npx playwrite test --headed                         //To view browser execution  
-npx playwright show-report                          //To show last run report
-npx playwright test tests/A1_Basics.spec.js         //To run specific classes
-npx playwrite test --headed --debug                 //To open Inspector for debugging 
-npx playwrite test --ui                             //To open Test Runner UI
+npx playwright test                                  //Headless, use it with test.only for 1 TC
+npx playwright test --headed                         //Browser + use it with test.only for 1 TC 
+npx playwright test --headed tests/A1_Basics.spec.js //Browser + Specific Class
+npx playwright test tests/A1_Basics.spec.js          //Specific Class
+npx playwright test A1_Basics.spec.js                //Specific Class
+npx playwright show-report                           //To show last run Test Report
+
+npx playwright test --headed --debug                 //To open Inspector for debugging 
+
+npx playwright test --ui                                       //To open Test Runner UI + Headless Model
+npx playwright test --headed --ui tests/A1_Basics.spec.js      //To open Test Runner UI + Browser Mode
+
 
 Note:
-npx playwrite : It will locate playwrite module inside ProjectName > node_modules > playwright
+npx playwright : It will locate playwrite module inside ProjectName > node_modules > playwright
 playwright bydefaut run browser in Headless mode 
 
 #Report
