@@ -16,7 +16,7 @@ const { test, expect, request } = require('@playwright/test');
  *      - path.toBe(val)
  *      - path.toContain(val) | List
  */
-test.only('API_TC1: GET Request Assertions', async ({ request }) => {
+test('API_TC1: GET Request Assertions', async ({ request }) => {
     const response = await request.get("https://swapi.py4e.com/api/people/10");
 
     //print

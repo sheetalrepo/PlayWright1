@@ -4,6 +4,11 @@ const { test, expect } = require('@playwright/test');
 /**
  * Visibility check
  *      - count()
+ * 
+ * 
+ * npx playwright test B2_VisibilityCheck.spec.js  
+ * npx playwright test --headed tests/UI_TCs_Practice/B2_VisibilityCheck.spec.js
+ *                
  */
 test('Test Visibility Check using Count', async ({page}) =>{
 

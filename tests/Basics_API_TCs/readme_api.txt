@@ -94,7 +94,7 @@ API Response:
 #How to #Debug API Automation Code  
 ============================================================================================================
 
-https://cognizant.udemy.com/course/playwright-tutorials-automation-testing/learn/lecture/31110862#overview
+https://www.udemy.com/course/playwright-tutorials-automation-testing/learn/lecture/31110862#overview
 Section 11 > Chapter 53
 
 #Steps:
