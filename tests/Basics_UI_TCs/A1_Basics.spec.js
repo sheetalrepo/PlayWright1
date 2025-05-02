@@ -1,5 +1,14 @@
-//import statement for test and assertions(expect)
 const { test, expect } = require('@playwright/test');
+
+
+/**
+ * 
+ * How to Run:
+ *          npx playwright test --headed A1_Basics.spec.js                  | Auto detect
+ *          npx playwright test A1_Basics.spec.js                           | Headless
+ *          npx playwright test tests/Basics_UI_TCs/A1_Basics.spec.js     | With Path    
+ */
+
 
 
 /**

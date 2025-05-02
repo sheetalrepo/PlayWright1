@@ -1,0 +1,65 @@
+{
+  "cookies": [
+    {
+      "name": "_ga",
+      "value": "GA1.1.413019365.1745485091",
+      "domain": ".expandtesting.com",
+      "path": "/",
+      "expires": 1780045093.215021,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ar_debug",
+      "value": "1",
+      "domain": ".region1.google-analytics.com",
+      "path": "/",
+      "expires": 1753261092.84322,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "express:sess",
+      "value": "eyJmbGFzaCI6e30sInVzZXJuYW1lIjoicHJhY3RpY2UifQ==",
+      "domain": "practice.expandtesting.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "express:sess.sig",
+      "value": "MhPNo1zptUJNE-6KAjcQQu4cQaw",
+      "domain": "practice.expandtesting.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_90GRT6N40B",
+      "value": "GS1.1.1745485091.1.1.1745485093.0.0.0",
+      "domain": ".expandtesting.com",
+      "path": "/",
+      "expires": 1780045093.218533,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "io",
+      "value": "yIjkO6hL-KUHZ-8wAAFz",
+      "domain": "practice.expandtesting.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

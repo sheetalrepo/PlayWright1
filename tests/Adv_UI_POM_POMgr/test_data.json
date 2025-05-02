@@ -1,0 +1,33 @@
+{
+    "TC001": {
+      "userName": "practice",
+      "password": "SuperSecretPassword!"
+    },
+    "TC002": {
+      "userName": "TestUser10810821",
+      "password": "Test1234"
+    },
+    "TC003": {
+      "id": 103,
+      "name": "Charli",
+      "address": {
+        "city": "Madrid",
+        "zip": "28001"
+      }
+    },
+    "TC004": [
+      "Selenium",
+      "Playwright",
+      "Cypress"
+    ],
+    "TC005": [
+      {
+        "userName": "practice",
+        "password": "SuperSecretPassword!"
+      },
+      {
+        "userName": "TestUser10810820",
+        "password": "Test1234"
+      }
+    ]
+  }

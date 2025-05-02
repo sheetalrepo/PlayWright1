@@ -34,6 +34,61 @@ https://playwright.dev/docs/test-assertions
    - Playwright Runner by Koushik
 
 
+#Upgrade/Downgrade Playwright
+npx playwright --version                    | to display current version e.g. 1.47.2
+npm show @playwright/test versions          | all available versions
+
+npm install @playwright/test@1.52.0         | to install specific versions 
+npx playwright install                      | to install new browsers compatible with new playwright versions    
+
+#Error After installation:
+Looks like Playwright Test or Playwright was just installed or updated. 
+Please run the following command to download new browsers:              
+        npx playwright install                       | 
+
+
+
+#Allure Report Installation
+1)npm install --save-dev @playwright/test allure-playwright
+        refer: node_modules: allure package visible 
+
+2)allure --version
+Error: allure : The term 'allure' is not recognized
+        
+
+3) In case of error, install allure globally
+        npm install -g allure-commandline
+        npx allure generate ./allure-results --clean
+        npm install -g allure-commandline                       | reinstall 
+        where allure                    | if no result path is not correct
+        npm list -g --depth=0
+                find allure path: C:\Users\xxx\AppData\Roaming\npm\allure-commandline@2.34.0
+        npx allure-commandline --version            | 2.34.0
+        
+        Add following to Window Env 'Path' variables
+                "C:\Users\xxx\AppData\Roaming\npm\node_modules\allure-commandline\bin"
+
+        #Reinstallation:
+        npm uninstall -g allure-commandline
+        npm install -g allure-commandline
+
+        Note:
+                1. Always open a new terminal after some changes  
+                2. Try Git Bash in case VScode not working
+
+4) Run the TCs with Reporter as Allure
+npx playwright test I2_TaggingTC.spec.js --grep "@smoke"  --reporter=line,allure-playwright
+    line= text format report, allure read line report and generate its own 
+    allure-results folder created 
+
+5) Generate Allure Report 
+allure generate ./allure-results --clean 
+
+6) Open Allure Report
+allure open ./allure-report
+
+
+
 ============================================================================================================
 ============================================================================================================
 #How to run TCs
@@ -42,11 +97,11 @@ https://playwright.dev/docs/test-assertions
 Terminal > Go to Project Root Folder 
     playwright.config.js File > testDir=./tests  | Default locaitons of all TCs
 
-npx playwright test                                  //Headless, use it with test.only for 1 TC
-npx playwright test --headed                         //Browser + use it with test.only for 1 TC 
-npx playwright test --headed tests/A1_Basics.spec.js //Browser + Specific Class
-npx playwright test tests/A1_Basics.spec.js          //Specific Class
-npx playwright test A1_Basics.spec.js                //Specific Class
+npx playwright test                                  //Headless + 1 Test Case (test.only)
+npx playwright test --headed                         //Browser  + 1 Test Case (test.only)
+npx playwright test --headed A1_Basics.spec.js       //Browser  + 1 Class
+npx playwright test A1_Basics.spec.js                //Headless + 1 Class
+npx playwright test A1_Basics.spec.js                //1 Class + Path: playwright.config.js >> testDir = ./tests
 npx playwright show-report                           //To show last run Test Report
 
 npx playwright test --headed --debug                 //To open Inspector for debugging 
@@ -55,13 +110,26 @@ npx playwright test --ui                                       //To open Test Ru
 npx playwright test --headed --ui tests/A1_Basics.spec.js      //To open Test Runner UI + Browser Mode
 
 
+#To run with different Configuration | default = playwright.config.js
+Note: in case of mult project, same test case will run on mult config i.e. mult browsers
+npx playwright test  --headed  .\abc.spec.js --config playwright.config2.js
+
+#Add mult project config inside main config
+npx playwright test  --headed  .\TestLoginPageNew.spec.js --config playwright.config2.js --project=my_firefox_config
+
+
 Note:
 npx playwright : It will locate playwrite module inside ProjectName > node_modules > playwright
 playwright bydefaut run browser in Headless mode 
 
-#Report
+#Report 
 http://localhost:9323/
 
+
+#Run via package.json | short way
+npm run basic_tests
+npm run chrome_tests
+npm run smoke_tests  
 
 
 
@@ -253,6 +321,22 @@ await locator.pressSequentially('23012024')
 
 
 
+============================================================================================================
+============================================================================================================
+#Export #Import #require
+============================================================================================================
+
+#Refer: Adv_UI_POM > TestLoginPage
+module.exports = LoginPage;                             //Imp No curly braces with exporting class 
+const { test, expect } = require('@playwright/test');
+const LoginPage = require('./LoginPage.js');            //Imp No curly braces with importing Class 
+    const loginPage = new LoginPage(page);
+
+
+#Refer: Basics_API_TCs > API_30_Logging
+module.exports = { logRequest };                            //curly braces with exporting a function
+const { logRequest } = require('./Util_Logger.js');         //curly braces with importing function
+
 
 
 ============================================================================================================
@@ -286,3 +370,4 @@ https://www.cuketest.com/playwright/docs/test-configuration/
 #Chrome Browser Plugins
 https://selectorshub.com/selectorshub/       Chrome Plugin
 ChroPath  Chrome Plugin
+

@@ -6,15 +6,14 @@ module.exports = defineConfig({             // https://playwright.dev/docs/test-
   expect: { timeout: 10000 },               // Timeout for each assertion         Overide: expect(locator).toBeVisible({ timeout: 10000 })
   fullyParallel: true,                      // Run all tests cases in every file in parallel
   forbidOnly: !!process.env.CI,             // Fail the build on CI if you accidentally left test.only in the source code
-  retries: process.env.CI ? 2 : 2,          // Retry on CI only
-  workers: process.env.CI ? 1 : undefined,  // Opt out of parallel tests on CI.
+  retries: process.env.CI ? 2 : 3,          // Retry on CI = 2, Retry on Local = 0
+  workers: process.env.CI ? 1 : 5,          // How many thread need to generate on to run TCs, Local = default 4 
   reporter: 'html',                         // https://playwright.dev/docs/test-reporters
   use: {                                    // https://playwright.dev/docs/api/class-testoptions
-    trace: 'retain-on-failure',             //on, retain-on-failure, on-first-retry |  https://trace.playwright.dev/ https://playwright.dev/docs/trace-viewer
-    screenshot: 'on',             //on 
-    browserName: 'webkit',        //firefox, chromium, webkit
+    trace: 'retain-on-failure',             // on, retain-on-failure, on-first-retry |  https://trace.playwright.dev/ https://playwright.dev/docs/trace-viewer
+    screenshot: 'only-on-failure',          // on, off, only-on-failure 
+    browserName: 'webkit',                  // firefox, chromium, webkit
     baseURL:'https://swapi.py4e.com/api/'
   }
-
 });
 
