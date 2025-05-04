@@ -12,8 +12,12 @@ let webContext;
  * 
  * Cookies location in Browser:
  *    Right Click > Inspect > Application > Storage > Cookies
+ * 
+ * 
+ * npx playwright test --headed H1_LoginUsingSessionStorage.spec.js
  */
 test.beforeAll('Before All TC', async ({browser}) =>{
+     console.log("\n============================== Prod Bug 108: Before All==============================")
      //To initialize new page
      const context = await browser.newContext();  
      const page = await context.newPage();
@@ -41,7 +45,7 @@ test.beforeAll('Before All TC', async ({browser}) =>{
   * -  
   */
  test('Test Login Page', async () =>{
-
+    console.log("\n============================== Prod Bug 108: Login==============================")
      //Creating a Page using webContext
      const page = await webContext.newPage();
 
@@ -51,13 +55,14 @@ test.beforeAll('Before All TC', async ({browser}) =>{
      //Go to page
      await page.goto('https://practice.expandtesting.com/');
      await testLoginPageTitle.click();      //Already logged in User
-     await page.waitForTimeout(5000);
+     //await page.waitForTimeout(5000);
+     await page.pause();
  })
 
 
  
  test('Test Register Page', async () =>{
-
+    console.log("\n============================== Prod Bug 108: Register Page==============================")
      //Creating a Page using webContext
      const page = await webContext.newPage();
 
@@ -68,5 +73,6 @@ test.beforeAll('Before All TC', async ({browser}) =>{
      await page.goto('https://practice.expandtesting.com/');
      //await page.pause();
      await testRegisterPageTitle.click();  //Already logged in User
-     await page.waitForTimeout(5000);
+     //await page.waitForTimeout(5000);
+     await page.pause();
  })

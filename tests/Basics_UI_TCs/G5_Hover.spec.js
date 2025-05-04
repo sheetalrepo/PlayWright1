@@ -6,7 +6,10 @@ const { log } = require('console');
  * 
  * locator.hover()
  * 
+ * npx playwright test --headed G5_Hover.spec.js
+ * 
  */
+
 
 test('Test Hover User 1', async ({page}) =>{
 
