@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { log } = require('console');
+
 
 
 
@@ -7,6 +7,8 @@ const { log } = require('console');
 
 /**
  * Calender Automation
+ * 
+ * npx playwright test --headed G1_Calendar.spec.js
  * 
  */
 test('Test Calendar 1', async ({page}) =>{
@@ -42,7 +44,7 @@ test('Test Calendar 1', async ({page}) =>{
      await contactName.press('ArrowRight'); 
      await contactName.pressSequentially('Bug');
 
-     await page.pause();
+     //await page.pause();
      await registerButton.click();
      await successMsg.isVisible();
 

@@ -1,7 +1,10 @@
 const { test, expect } = require('@playwright/test');
 const { log } = require('console');
 
-
+/**
+ * 
+ * npx playwright test --headed G3_PopupsConfirm.spec.js
+ */
 
 test('Test JS Confirm - OK', async ({page}) =>{
 
@@ -15,8 +18,8 @@ test('Test JS Confirm - OK', async ({page}) =>{
      await javaScriptDialogsTitle.click();
 
      //JS Confirm OK
-     page.on('dialog', x => x.accept());    //Pre defined action to click 'OK' button
-     await jsConfirm.click();               //As soon as popup appear here, it will click 'OK' automatically from previous step 
+     page.on('dialog', x => x.accept());    //Listeners will be activated and click 'OK' whenever it appear
+     await jsConfirm.click();               //Action
 
      //Verification
      const responseOK = await dialogResponse.textContent(); 
@@ -40,7 +43,7 @@ test('Test JS Confirm - Cancel', async ({page}) =>{
      await javaScriptDialogsTitle.click();
 
      //JS Confirm CANCEL
-     page.on('dialog', x => x.dismiss());  //Pre defined action to click 'Cancel' button
+     page.on('dialog', x => x.dismiss());  //Listeners will be activated and click 'Cancel' whenever it appear
      await jsConfirm.click();
 
      //Verification

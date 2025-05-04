@@ -2,7 +2,10 @@ const { test, expect } = require('@playwright/test');
 const { log } = require('console');
 
 
-
+/**
+ * 
+ * npx playwright test --headed G4_PopupsPrompt.spec.js
+ */
 
 test('Test JS Prompt - OK', async ({page}) =>{
 
@@ -13,14 +16,14 @@ test('Test JS Prompt - OK', async ({page}) =>{
 
      //When
      await page.goto('https://practice.expandtesting.com/');
-     await page.pause();
+     //await page.pause();
      await javaScriptDialogsTitle.click();
   
      
 
      //JS Prompt - OK
      page.on('dialog', x => x.accept('ABC'));    //Pre defined action to click 'OK' button
-     await jsPromt.click();                //As soon as popup appear here, it will click 'OK' automatically from previous step 
+     await jsPromt.click();       //As soon as popup appear here, it will click 'OK' automatically from previous step 
   
      //Verification
      const responseOK = await dialogResponse.textContent(); 
@@ -41,7 +44,7 @@ test('Test JS Prompt - Cancel', async ({page}) =>{
 
      //When
      await page.goto('https://practice.expandtesting.com/');
-     await page.pause();
+     //await page.pause();
      await javaScriptDialogsTitle.click();
   
      

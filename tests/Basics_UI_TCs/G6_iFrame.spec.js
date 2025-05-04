@@ -6,40 +6,33 @@ const { log } = require('console');
  * 
  * iFrame
  *   page.frameLocator()
+ * 
+ * 
+ * npx playwright test --headed G6_iFrame.spec.js
  */
 
 test('Test iFrame 1', async ({page}) =>{
 
-     //Parent Page Locators
+     //Parent Page
      const iFrameTitleParentPageElement = page.locator('text="IFrame"');
-     const alignRightParentPageElement = page.locator("//button[@title='Align right']");
-
-     //When
      await page.goto('https://practice.expandtesting.com/');
      await iFrameTitleParentPageElement.click();
-     
+    
      //Switch to iFrame
-     const pageIFrameTinyMCEEditor = page.frameLocator("#mce_0_ifr");   // Child Page
-
-     //iFrame Locators will come here (Child Page)
+     const pageIFrameTinyMCEEditor = page.frameLocator("#mce_0_ifr");   
      const textAreaChildelement = pageIFrameTinyMCEEditor.locator("#tinymce");
-     
-     //await page.pause();
-     await textAreaChildelement.clear();                // Child Page element
-     await textAreaChildelement.fill("#Prod Bug 108 working inside iFrame");
-     await alignRightParentPageElement.click();         // Parent Page element
-     
+     await textAreaChildelement.clear();               
+     await textAreaChildelement.fill("@Prod Bug 108 working inside iFrame");
+
+     await page.pause();
      console.log("===========================#Prodbug108#===========================");
 })
 
 
 test('Test iFrame 2', async ({page}) =>{
 
-     //Locators
+     //Parent Page
      const iFrameTitle = page.locator('text="IFrame"');
-     
-
-     //When
      await page.goto('https://practice.expandtesting.com/');
      await iFrameTitle.click();
 
@@ -56,6 +49,6 @@ test('Test iFrame 2', async ({page}) =>{
      const message = await successMessageChildElement.textContent();
      console.log("### Message: "+ message);
     
-    
+     await page.pause();
      console.log("===========================#Prodbug108#===========================");
 })
