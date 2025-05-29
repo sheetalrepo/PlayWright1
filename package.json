@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-     "basic_tests": "npx playwright test J2_RunTCUsingScripts.spec.js",
-     "chrome_tests": "npx playwright test  --headed  J2_RunTCUsingScripts.spec.js --config playwright.config2.js --project=my_chrome_config",
-     "smoke_tests": "npx playwright test --headed J2_RunTCUsingScripts.spec.js --grep \"@smoke\""
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.7.4",
     "allure-playwright": "^3.2.1"
