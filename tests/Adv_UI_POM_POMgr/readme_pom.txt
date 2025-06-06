@@ -9,14 +9,15 @@ https://www.youtube.com/@prodbug108
 
 #FW Features:
 1. POM Implementation
-2. Multiple browser support 
-3. Parallel Running
-4. Viewport settings for diff screen sizes (playwright.config2.js)
-5. Testing on diff Mobile devices 
-6. Copy Prompt feature(v1.51+) to take help of AI LLMs
-7. Allure Reporting
-8. Run in headed or headless via cmd
-9. Reading Data from JSON files
+2. Parallel Running
+3. Reading Data from JSON files
+4. Passing params via cmd like base url 
+5. Run in headed or headless via cmd
+6. Run via cmd, diff config for each env 
+7. Run via different Tags
+8. Multiple browser support 
+9. Viewport settings for diff screen sizes like Mobile Screens etc
+10. Copy Prompt feature(v1.51+) to take help of AI LLMs
 
 
 #POM Framwork Layers:
