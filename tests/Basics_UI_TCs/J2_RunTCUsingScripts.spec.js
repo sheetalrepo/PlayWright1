@@ -41,12 +41,12 @@ test('user can login 2', { tag: ['@smoke'] }, async ({ page }) => {
     await page.goto('https://www.google.com/');
 });
 
-test('user can login 3', { tag: ['@reg' ] }, async ({ page }) => {
+test('user can login 3', { tag: ['@reg2' ] }, async ({ page }) => {
     console.log("###Title: 3"); 
     await page.goto('https://es.search.yahoo.com/');
 });
 
-test('user can login 4', { tag: ['@reg'] }, async ({ page }) => {
+test('user can login 4', { tag: ['@reg2'] }, async ({ page }) => {
     console.log("###Title: 4"); 
     await page.goto('https://www.youtube.com/c/sheetalsingh23/videos');
     

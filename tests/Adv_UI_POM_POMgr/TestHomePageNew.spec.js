@@ -9,6 +9,8 @@ const testData =  JSON.parse(JSON.stringify(require("./test_data.json")));
  *      - Reading test data from external file
  *          JSON > JSON String > JSON Object
  * 
+ * 
+ * npx playwright test  --headed  TestHomePageNew.spec.js
  * npx playwright test  --headed  .\TestHomePageNew.spec.js
  */
 
@@ -36,6 +38,18 @@ for(const i of testData.TC004){
 }
 
 
+//npx playwright test --headed TestHomePageNew.spec.js --grep "@abc"
+//npx playwright test  --headed TestHomePageNew.spec.js --grep "@abc" --config playwright.config2.js --project=my_chrome_config
+//npx playwright test --project=my_webkit_config
+test('Verify Base URL Navigation', { tag: ['@abc'] }, async ({ page, baseURL }) => {    
+    const poManager = new POManager(page);
+    const homePageNew = poManager.getHomePageNew();
+    await homePageNew.openBaseURLConfig({baseURL});
+    await homePageNew.searchForKeyword("Hola");
+    await expect(page).toHaveURL(baseURL);
+})
+
+
 
 /**
  * 
@@ -58,3 +72,25 @@ test('TC004_Search_For_Text_2', async ({ page }) => {
         //TODO: Rest of the verification  
     }
 })
+
+
+
+
+
+/**
+ * Testing Tagging
+ */
+test('Sample Home Page Case 1', { tag: '@sanity' }, async ({ page }) => {
+    console.log("###Sample Home Page 1: Sanity Case"); 
+    await page.goto('https://practice.expandtesting.com/');
+});
+
+test('Sample Home Page Case 2', { tag: '@reg_tc'}, async ({ page }) => {    
+    console.log("###Sample Home Page 2: Reg Case"); 
+    await page.goto('https://www.youtube.com/@prodbug108');
+});
+
+test('Sample Home Page Case 3', { tag: ['@reg_tc', '@sanity'] }, async ({ page }) => {
+    console.log("###Sample Home Page 3: Reg AND Sanity Case"); 
+    await page.goto('https://www.yahoo.com');
+});

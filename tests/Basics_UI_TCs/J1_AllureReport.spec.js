@@ -30,11 +30,11 @@ test('user can login 2', { tag: ['@smoke'] }, async ({ page }) => {
     console.log("###Title: 2"); 
 });
 
-test('user can login 3', { tag: ['@reg' ] }, async ({ page }) => {
+test('user can login 3', { tag: ['@reg1' ] }, async ({ page }) => {
     console.log("###Title: 3"); 
 });
 
-test('user can login 4', { tag: ['@reg'] }, async ({ page }) => {
+test('user can login 4', { tag: ['@reg1'] }, async ({ page }) => {
     console.log("###Title: 4"); 
 });
 
@@ -42,10 +42,10 @@ test('user can login 5', { tag: ['@e2e'] }, async ({ page }) => {
     console.log("###Title: 5"); 
 });
 
-test('user can login 6', { tag:  ['@smoke', '@reg', '@e2e' ] }, async ({ page }) => {
+test('user can login 6', { tag:  ['@smoke', '@reg1', '@e2e' ] }, async ({ page }) => {
     console.log("###Title: 6"); 
 });
 
-test('user can login 7', { tag:  ['@smoke', '@reg', '@e2e' ] }, async ({ page }) => {
+test('user can login 7', { tag:  ['@smoke', '@reg1', '@e2e' ] }, async ({ page }) => {
     console.log("###Title: 7"); 
 });

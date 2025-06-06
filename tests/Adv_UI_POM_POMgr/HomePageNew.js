@@ -23,6 +23,18 @@ class HomePageNew{
         await this.page.goto('https://practice.expandtesting.com/');
     }
 
+    async openBaseURLConfig({ baseURL }) {
+        console.log(`>>> Opening Base URL: ${baseURL}`);
+        await this.page.goto(baseURL);
+    }
+
+    async openBaseURLCmd() {
+        const baseURL123 = process.env.BASE_URL || 'https://practice.expandtesting.com/';
+        console.log(`>>> Opening Base URL (CMD): ${baseURL123}`);
+        await this.page.goto(baseURL123);
+    }
+   
+
     async goToLoginPage() {
         await this.loginPageLink.click();
     }
