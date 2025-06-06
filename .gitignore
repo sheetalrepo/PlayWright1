@@ -4,3 +4,7 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 .github
+allure-report/
+allure-results/
+
+

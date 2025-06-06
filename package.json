@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "chrome_tests": "npx playwright test  --headed TestLoginPageNew.spec.js --grep \"@reg_tc\" --config playwright.config2.js --project=my_chrome_config"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

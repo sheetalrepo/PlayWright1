@@ -29,7 +29,7 @@ module.exports = defineConfig({
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',                 //video
         browserName: 'chromium',
-        baseURL: 'https://swapi.py4e.com/api/',
+        baseURL: 'https://practice.expandtesting.com/',
         headless: false,
         viewport: {width:412, height:915}          //Pixel 7 dimentions
       }

@@ -9,6 +9,7 @@ const testData =  JSON.parse(JSON.stringify(require("./test_data.json")));
  *      - Reading test data from external file
  *          JSON > JSON String > JSON Object
  * 
+ * npx playwright test  --headed  TestLoginPageNew.spec.js
  * npx playwright test  --headed  .\TestLoginPageNew.spec.js
  */
 
@@ -34,7 +35,7 @@ test('TC001_Successful_Login_Test_With_PO_Manager', async ({ page }) => {
     await loginPageNew.verifyLoginPage();
     const successMessage = await loginPageNew.loginWithUserPassword(userName, password);
     console.log("Success Message: ",successMessage)
-    expect(successMessage).toBe("You logged into a secure area!123");
+    expect(successMessage).toBe("You logged into a secure area!");
 
 })
 
@@ -70,3 +71,69 @@ test('TC001_Successful_Login_Test_With_PO_Manager', async ({ page }) => {
 //         expect(successMessage).toBe("You logged into a secure area!");
 //     })
 // }
+
+
+
+
+
+
+/**
+ * Testing Tagging
+ */
+test('Sample Login 1', { tag: '@sanity'}, async ({ page }) => {
+    console.log("###Sample Login 1: Sanity Case"); 
+    await page.goto('https://practice.expandtesting.com/');
+});
+
+test('Sample Login 2', { tag: '@reg_tc'}, async ({ page }) => {
+    console.log("###Sample Login 2: Reg Case"); 
+    await page.goto('https://www.google.com/');
+});
+
+test('Sample Login 3', { tag: ['@reg_tc', '@sanity'] }, async ({ page }) => {
+    console.log("###Sample Login 3: Reg && Sanity Case"); 
+    await page.goto('https://www.youtube.com/@prodbug108');
+});
+
+
+test('Sample Login 4', { tag: '@sanity'}, async ({ page }) => {
+    console.log("###Sample Login 4: Sanity Case"); 
+    await page.goto('https://www.yahoo.com/');
+});
+
+//Another Type of Tagging
+test('Sample Login 5 @sanity', async ({ page }) => {
+    console.log("###Sample Login 5: Sanity Case"); 
+    await page.goto('https://www.msn.com/');
+});
+
+
+
+
+/**
+ * Run via Git Bash
+ *      BASE_URL=https://practice.expandtesting.com/ npx playwright test --headed TestLoginPageNew.spec.js --grep "@cmd"
+ */
+test('TC001_Successful_Login_Test_With_cmd', { tag: '@cmd'}, async ({ page }) => {
+    
+    //Page Objects
+    const poManager = new POManager(page);
+    const homePageNew = poManager.getHomePageNew();    
+    const loginPageNew = poManager.getLoginPageNew();
+
+    //Reading test data from JSON
+    const userName = testData.TC001.userName;
+    const password = testData.TC001.password;
+    console.log("###Login with ",userName, " & ", password);
+    
+    //Home Page
+    await homePageNew.openBaseURLCmd();  //Read BaseURL from CMD
+    await homePageNew.goToLoginPage();
+
+    //Login Page
+    await loginPageNew.verifyLoginPage();
+    const successMessage = await loginPageNew.loginWithUserPassword(userName, password);
+    console.log("Success Message: ",successMessage)
+    expect(successMessage).toBe("You logged into a secure area!");
+
+})
