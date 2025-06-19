@@ -55,44 +55,39 @@ Integration with external reporting tools like Allure or Extent Reports for deta
 
 #Basic Commands:
 npx playwright test TestLoginPageNew.spec.js                    | Headless Mode 
-npx playwright test --headed TestLoginPageNew.spec.js           | Headed Mode
-npx playwright test  --headed  .\TestLoginPageNew.spec.js
+npx playwright test --headed TestLoginPage.spec.js              | Headed Mode
+npx playwright test --headed TestLoginPageTags.spec.js
 
 
 #Run Tag Wise 
 https://playwright.dev/docs/test-annotations
-npx playwright test --headed TestLoginPageNew.spec.js --grep "@sanity"      | One Class One Tag
-npx playwright test --grep "@sanity"                                        | All Class One Tag
+npx playwright test --headed TestLoginPageTags.spec.js --grep "@sanity"      | One Class One Tag
+npx playwright test --grep "@sanity"                                         | All Class One Tag
 
-npx playwright test --headed TestLoginPageNew.spec.js --grep-invert "@sanity"      | Run all TC including w/o Tag TCs except @sanity 
+npx playwright test --headed TestLoginPageTags.spec.js --grep-invert "@sanity"      | Run all TC including w/o Tag TCs except @sanity 
 
-npx playwright test --headed TestLoginPageNew.spec.js --grep --% "@sanity^|@reg"        | Logical OR
-npx playwright test --headed TestLoginPageNew.spec.js --grep "(?=.*@sanity)(?=.*@reg)"  | Logical AND
+npx playwright test --headed TestLoginPageTags.spec.js --grep --% "@sanity^|@reg"        | Logical OR
+npx playwright test --headed TestLoginPageTags.spec.js --grep "(?=.*@sanity)(?=.*@reg)"  | Logical AND
 
 
 #Run as per Config files
-npx playwright test  --headed TestLoginPageNew.spec.js --grep "@reg_tc" --config playwright.config2.js --project=my_chrome_config
+npx playwright test  --headed TestLoginPageTags.spec.js --grep "@reg_tc" --config playwright.config2.js --project=my_chrome_config
 npx playwright test  --headed --grep "@reg_tc" --config playwright.config2.js --project=my_chrome_config
 
 
 #Run via NPM cmd 
 1. Update scrpts in package.json > script section
     "scripts": {
-            "chrome_tests": "npx playwright test  --headed TestLoginPageNew.spec.js --grep \"@reg_tc\" --config playwright.config2.js --project=my_chrome_config"
+            "chrome_tests": "npx playwright test  --headed TestLoginPageTags.spec.js --grep \"@reg_tc\" --config playwright.config2.js --project=my_chrome_config"
     }
 2. npm run chrome_tests
 
 
 #Pass Base URL via cmd line
 Using Git Bash Terminal 
-BASE_URL=https://practice.expandtesting.com/ npx playwright test --headed TestLoginPageNew.spec.js --grep "@cmd"
-BASE_URL=https://qa.practice.expandtesting.com/ npx playwright test --headed TestLoginPageNew.spec.js --grep "@cmd"
-npx playwright test --headed TestLoginPageNew.spec.js --grep "@cmd"             //Default = Prod URL
-
-============================================================================================================
-============================================================================================================
-#Others:
-============================================================================================================
+BASE_URL=https://practice.expandtesting.com/ npx playwright test --headed TestBaseURLFromCMD.spec.js --grep "@cmd"
+BASE_URL=https://qa.practice.expandtesting.com/ npx playwright test --headed TestBaseURLFromCMD.spec.js --grep "@cmd"
+npx playwright test --headed TestBaseURLFromCMD.spec.js --grep "@cmd"             //Default = Prod URL
 
 
 

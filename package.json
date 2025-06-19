@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "chrome_tests": "npx playwright test  --headed TestLoginPageNew.spec.js --grep \"@reg_tc\" --config playwright.config2.js --project=my_chrome_config"
+    "chrome_tests": "npx playwright test  --headed TestLoginPageTags.spec.js --grep \"@reg_tc\" --config playwright.config2.js --project=my_chrome_config"
   },
   "keywords": [],
   "author": "",

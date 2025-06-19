@@ -11,7 +11,7 @@ class HomePageNew{
 
     constructor(page){
         this.page = page;
-        this.h1TextHomePage = page.locator('text="Automation Testing Practice for QA and Developers"');
+        this.h1TextHomePage = page.locator("h1#main-title");
         this.loginPageLink = page.locator('text="Test Login Page"');  
         this.registerPageLink = page.locator('text="Test Register Page"');    
         this.searchInput = page.locator("input#search-input");   //tag#id
@@ -19,15 +19,19 @@ class HomePageNew{
         
     }
 
+    //HardCoded
     async openBaseURL() {
         await this.page.goto('https://practice.expandtesting.com/');
     }
 
+
+    //Via Config
     async openBaseURLConfig({ baseURL }) {
         console.log(`>>> Opening Base URL: ${baseURL}`);
         await this.page.goto(baseURL);
     }
 
+    //Via CMD
     async openBaseURLCmd() {
         const baseURL123 = process.env.BASE_URL || 'https://practice.expandtesting.com/';
         console.log(`>>> Opening Base URL (CMD): ${baseURL123}`);
